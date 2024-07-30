@@ -14,6 +14,16 @@ export default defineConfig({
   server:{                 
     host: true,
     port:7100,
+    proxy: {
+      '/api': {
+        target: 'http://10.21.243.135:8080/',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api": "",
+        },
+      }
+    }
 	}           
 
 })
